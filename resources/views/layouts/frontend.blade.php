@@ -48,7 +48,7 @@
                         <li class="active"><a href="#booking">Booking</a></li>
                     </ul>
                 </nav>
-                <a href="#" class="primary-btn top-btn" target="_blank">
+                <a href="https://housebeladio.com/?page_id=610" class="primary-btn top-btn">
 					<i class="fa fa-phone"></i> Contact
 				</a>
             </div>
