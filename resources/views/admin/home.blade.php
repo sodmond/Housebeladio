@@ -45,7 +45,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-mv text-uppercase mb-1">
                             Bookings (Yesterday)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">36</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $bookings_yesterday }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>

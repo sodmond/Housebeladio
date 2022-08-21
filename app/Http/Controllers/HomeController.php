@@ -60,12 +60,14 @@ class HomeController extends Controller
     {
         $bookings_total = Booking::count();
         $bookings_today = Booking::whereRaw('DATE(created_at) = CURDATE()')->count();
+        $bookings_yesterday = Booking::whereRaw('DATE(created_at) = SUBDATE(CURDATE(),1)')->count();
         $payments_count = DB::table('transactions')->count();
         $payments_total = DB::table('transactions')->sum('amount');
         $payments_today = DB::table('transactions')->whereRaw('DATE(created_at) = CURDATE()')->sum('amount');
         return view('admin.home', [
             'bookings_total' => $bookings_total, 
             'bookings_today' => $bookings_today,
+            'bookings_yesterday' => $bookings_yesterday,
             'payments_count' => $payments_count,
             'payments_total' => $payments_total,
             'payments_today' => $payments_today,

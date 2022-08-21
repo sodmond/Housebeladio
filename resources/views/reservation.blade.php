@@ -61,16 +61,17 @@
                             <label for="guests">Expected Guests</label>
                             <input type="number" name="guests" id="guests" value="{{ old('guests') }}">
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 my-4">
                             <label for="event_date">Terms and Condition</label>
-                            <textarea placeholder="Messages"></textarea>
+                            <textarea placeholder="Messages"><?php echo file_get_contents(asset('terms-conditions.txt')); ?>
+                            </textarea>
                             <div class="row">
-                                <div class="col-auto">
-                                    <input type="checkbox" name="agreement" id="agreement" required>
-                                </div>
-                                <div class="col">
-                                    <span class="fs-4">I agree to the terms and condition above</span>
-                                </div>                                
+                                <div class="col-12">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="agreement" id="agreement" required>
+                                        <label class="form-check-label" for="agreement">I agree to the terms and condition above</label>
+                                    </div>
+                                </div>                               
                             </div>
                         </div>
                         <div class="col-lg-12 text-center">
