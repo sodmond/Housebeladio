@@ -21,6 +21,7 @@ You have successfully completed the booking of our event center, see booking det
 
 <p>&nbsp;</p>
 
-Thanks,<br>
+Best regards,<br>
+Management Team,<br>
 {{ config('app.name') }}
 @endcomponent

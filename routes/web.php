@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SettingsController;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:web'
     Route::get('/event_center/trash/{id}', [SettingsController::class, 'trashEventCenter'])->name('event_center.trash');
 });
 
+/*Route::get('/mailable', function () {
+    $booking = Booking::find(1);
+ 
+    return new App\Mail\BookingConfirmation($booking, 'Upstairs', 'whgejf48574554');
+});*/
