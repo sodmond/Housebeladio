@@ -32,6 +32,15 @@ class HomeController extends Controller
             ['event_center_id', 3],
             ['event_date', $request->event_date],
         ])->get();
+        if ($request->event_center == 3) {
+            $getBookings = Booking::where([
+                ['event_center_id', 1],
+                ['event_date', $request->event_date],
+            ])->orWhere([
+                ['event_center_id', 2],
+                ['event_date', $request->event_date],
+            ])->get();
+        }
         if ($getBookings->count() < 1) {
             //dd($request->all());
             $availablity = $request->all();
