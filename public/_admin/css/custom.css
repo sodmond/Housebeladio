@@ -1,0 +1,28 @@
+/* Button Custom Styles */
+.btn-mv{
+  background-color: #AA3987 !important;
+  border-color: #AA3987 !important;
+  color: #eee !important;
+}
+
+.btn-mv:hover{
+  background-color: #f9488b !important;
+  border-color: #f9488b !important;
+  color: #eee !important;
+}
+
+/* Background Custom Styles */
+
+.bg-mv{
+  background-color: #AA3987 !important;
+}
+
+.border-left-mv, .border-right-mv{
+  border-left: 0.25rem solid #f9488b !important;
+}
+
+/* Text Custom Styles */
+
+.text-mv{
+  color: #AA3987 !important;
+}
