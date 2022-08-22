@@ -44,6 +44,7 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
+                        <li class="active"><a href="https://housebeladio.com/">Main Site</a></li>
                         <li class="active"><a href="#home">House Beladio</a></li>
                         <li class="active"><a href="#booking">Booking</a></li>
                     </ul>
