@@ -57,7 +57,7 @@ class PaymentController extends Controller
                 ]);
                 DB::commit();
             }
-            Mail::to($booking->email)->send(new BookingConfirmation($booking, $paymentMeta['event_center'], $paymentData['reference']));
+            Mail::to($booking->email)->bcc('booking@housebeladio.com')->send(new BookingConfirmation($booking, $paymentMeta['event_center'], $paymentData['reference']));
             $convDate = date('l jS \of F Y', strtotime($paymentMeta['event_date']));
             return redirect('/')->with('suc_msg', 'You have booked the ' . $paymentMeta['event_center'] . ' for ' . $convDate);
         }
