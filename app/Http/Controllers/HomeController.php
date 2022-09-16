@@ -23,7 +23,7 @@ class HomeController extends Controller
     {
         $this->validate($request, [
             'event_center' => 'required|integer',
-            'event_date' => 'required|date',
+            'event_date' => 'required|date|after:today',
         ]);
         $getBookings = Booking::where([
             ['event_center_id', $request->event_center],
@@ -51,7 +51,7 @@ class HomeController extends Controller
             //return view('reservation', compact('availablity', 'space'));
             return redirect()->route('booking'); //->withInput(['availablity' => $availablity, 'space' => $space]);
         }
-        return back()->with('err_msg', 'Event center not available for that day');
+        return back()->withErrors(['event_date_ops' => 'Event center not available for that day']);
     }
 
     public function booking(Request $request)

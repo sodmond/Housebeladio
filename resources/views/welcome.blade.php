@@ -32,16 +32,24 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    @if (session('suc_msg'))
-                        <div class="alert alert-success" role="alert"><strong>Success!</strong> {{ session('suc_msg') }}</div>
+                    @if (count($errors))
+                        <div class="alert alert-danger mb-2">
+                            <strong>Whoops!</strong> Error validating data.<br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
-                    @if (session('err_msg'))
-                        <div class="alert alert-danger" role="alert"><strong>Oops!</strong> {{ session('err_msg') }}</div>
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert"><strong>Success!</strong> {{ session('suc_msg') }}</div>
                     @endif
                     <form action="{{ route('booking.check') }}" class="comment-form contact-form" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
+                                <label for="event_center">Choose Event Center Space</label>
                                 <select name="event_center" id="event_center" required>
                                     <option value="">- - - Select Event Space - - -</option>
                                     @foreach ($event_centers as $space)
@@ -54,7 +62,8 @@
                                 $today = date('Y-m-d');
                                 $tomorrow = date('Y-m-d', strtotime($today . ' +1 day'))
                                 ?>
-                                <input type="date" name="event_date" id="event_date" min="{{ $tomorrow }}" required>
+                                <label for="event_date">Select Event Date</label>
+                                <input type="date" name="event_date" id="event_date" min="{{ $tomorrow }}" placeholder="mm/dd/yyyy" required>
                             </div>
                             <div class="col-lg-12 text-center">
                                 <button type="submit" class="site-btn">Check Availability</button>
@@ -65,4 +74,18 @@
             </div>
         </div>
     </section>
+@push('custom-script')
+    <script>
+        $(document).ready(function() {
+            var event_date = $('#event_date');
+            if (event_date.attr('type') != 'date') { 
+                //alert('Worked!');
+                event_date.datepicker({
+                    minDate: +1,
+                });
+            }
+            //$('input[type=date]').on('load', function(){ alert('Worked!') });
+        });
+    </script>
+@endpush
 @endsection

@@ -33,7 +33,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-lg-4">
-                            <label for="name">Name</label>
+                            <label for="name">Full Name</label>
                             <input type="text" name="name" id="name" placeholder="Your Name" required value="{{ old('name') }}">
                         </div>
                         <div class="col-lg-4">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label for="event_date">Event Date</label>
-                            <input type="text" name="event_date" id="event_date" value="{{ $availablity['event_date'] }}">
+                            <input type="text" name="event_date" id="event_date" value="{{ $availablity['event_date'] }}" readonly>
                         </div>
                         <div class="col-lg-6">
                             <label for="guests">Expected Guests</label>

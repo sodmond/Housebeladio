@@ -6,6 +6,7 @@ use App\Mail\BookingConfirmation;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Unicodeveloper\Paystack\Facades\Paystack;
 
@@ -27,6 +28,7 @@ class PaymentController extends Controller
         try {
             return Paystack::getAuthorizationUrl($data)->redirectNow();
         } catch (\Exception $e) {
+            Log::info($e->getMessage());
             return back()->with(['err_msg'=>'The paystack token has expired. Please refresh the page and try again.']);
         }
     }
